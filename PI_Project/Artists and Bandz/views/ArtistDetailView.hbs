@@ -1,0 +1,49 @@
+<style>
+    body{
+	background-color: lightgrey;
+	}
+	.album{
+		background: grey;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 20px;
+	}
+	.title{
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		font-size: medium;
+	}
+	.content{
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: medium;
+	}
+
+</style>
+
+<div class="container text-center">
+    <h1>{{name}}</h1>
+    <img class="img-thumbnail" src="{{this.image}}" style="width:250px; height:250px;">
+	<hr>
+    <p><strong>Genres:</strong> {{genres}}</p>
+</div>
+
+<hr>
+<h1>Available Albums:</h1>
+
+{{> paging }}
+
+<table class="table table-bordered">
+	<thead>
+	<tr>
+		<th>Album name</th>
+	</tr>
+	</thead>
+	<tbody>
+		{{#each albums}}
+			<tr>
+				<td><a href={{this.detailUrl}}> {{this.name}}</a></td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+{{> paging }}

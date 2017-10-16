@@ -1,0 +1,409 @@
+
+{
+  "album_type" : "album",
+  "artists" : [ {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+    },
+    "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+    "id" : "1KCSPY1glIKqW2TotWuXOR",
+    "name" : "P!nk",
+    "type" : "artist",
+    "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+  } ],
+  "available_markets" : [ "JP", "US" ],
+  "copyrights" : [ {
+    "text" : "(P) 2012 RCA Records, a division of Sony Music Entertainment",
+    "type" : "P"
+  } ],
+  "external_ids" : {
+    "upc" : "886443537828"
+  },
+  "external_urls" : {
+    "spotify" : "https://open.spotify.com/album/2rBb9rAEuMC8VH9uk7js3e"
+  },
+  "genres" : [ ],
+  "href" : "https://api.spotify.com/v1/albums/2rBb9rAEuMC8VH9uk7js3e",
+  "id" : "2rBb9rAEuMC8VH9uk7js3e",
+  "images" : [ {
+    "height" : 640,
+    "url" : "https://i.scdn.co/image/72a2e13c52f99f9cc444393708e2487d789df1b2",
+    "width" : 640
+  }, {
+    "height" : 300,
+    "url" : "https://i.scdn.co/image/c75fdd701b2b149968ae7728ffad5b354d597f67",
+    "width" : 300
+  }, {
+    "height" : 64,
+    "url" : "https://i.scdn.co/image/2e4515e8799a3183063e5d1179269df3b8653a77",
+    "width" : 64
+  } ],
+  "label" : "RCA Records Label",
+  "name" : "The Truth About Love",
+  "popularity" : 64,
+  "release_date" : "2012-09-17",
+  "release_date_precision" : "day",
+  "tracks" : {
+    "href" : "https://api.spotify.com/v1/albums/2rBb9rAEuMC8VH9uk7js3e/tracks?offset=0&limit=50",
+    "items" : [ {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 217906,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0Zb38EN7sPEyU2q3OQFboe"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0Zb38EN7sPEyU2q3OQFboe",
+      "id" : "0Zb38EN7sPEyU2q3OQFboe",
+      "name" : "Are We All We Are",
+      "preview_url" : "https://p.scdn.co/mp3-preview/6713f2a30a12711690ec96890886c00cb8b4d0bf",
+      "track_number" : 1,
+      "type" : "track",
+      "uri" : "spotify:track:0Zb38EN7sPEyU2q3OQFboe"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 255586,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/6LS6pltO7YBgjwNVhxMwtp"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/6LS6pltO7YBgjwNVhxMwtp",
+      "id" : "6LS6pltO7YBgjwNVhxMwtp",
+      "name" : "Blow Me (One Last Kiss)",
+      "preview_url" : "https://p.scdn.co/mp3-preview/171ad683a8525cd62871b90287f1c49c2f9f0500",
+      "track_number" : 2,
+      "type" : "track",
+      "uri" : "spotify:track:6LS6pltO7YBgjwNVhxMwtp"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 247906,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/29aowaXQxpbHVFKNkgVnau"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/29aowaXQxpbHVFKNkgVnau",
+      "id" : "29aowaXQxpbHVFKNkgVnau",
+      "name" : "Try",
+      "preview_url" : "https://p.scdn.co/mp3-preview/7384a4f0caa0d894ccf54f3a2ab28800d87be45b",
+      "track_number" : 3,
+      "type" : "track",
+      "uri" : "spotify:track:29aowaXQxpbHVFKNkgVnau"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1qUjOF5fzrpoNycD36b2jZ"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1qUjOF5fzrpoNycD36b2jZ",
+        "id" : "1qUjOF5fzrpoNycD36b2jZ",
+        "name" : "Nate Ruess",
+        "type" : "artist",
+        "uri" : "spotify:artist:1qUjOF5fzrpoNycD36b2jZ"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 242733,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/1qHaLcG3LOeh6ZB8vii5ZZ"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/1qHaLcG3LOeh6ZB8vii5ZZ",
+      "id" : "1qHaLcG3LOeh6ZB8vii5ZZ",
+      "name" : "Just Give Me a Reason",
+      "preview_url" : "https://p.scdn.co/mp3-preview/ef4de7cafc3510bd0664b6173c79dc6dee229039",
+      "track_number" : 4,
+      "type" : "track",
+      "uri" : "spotify:track:1qHaLcG3LOeh6ZB8vii5ZZ"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/13saZpZnCDWOI9D4IJhp1f"
+        },
+        "href" : "https://api.spotify.com/v1/artists/13saZpZnCDWOI9D4IJhp1f",
+        "id" : "13saZpZnCDWOI9D4IJhp1f",
+        "name" : "Lily Allen",
+        "type" : "artist",
+        "uri" : "spotify:artist:13saZpZnCDWOI9D4IJhp1f"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 230733,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/35hW18HrovbypDjBg1R2kw"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/35hW18HrovbypDjBg1R2kw",
+      "id" : "35hW18HrovbypDjBg1R2kw",
+      "name" : "True Love",
+      "preview_url" : "https://p.scdn.co/mp3-preview/d6dd5dd5656fda234fd99735251d6c80140049f7",
+      "track_number" : 5,
+      "type" : "track",
+      "uri" : "spotify:track:35hW18HrovbypDjBg1R2kw"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 192693,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/41idour8R9nElmvU5lLMdH"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/41idour8R9nElmvU5lLMdH",
+      "id" : "41idour8R9nElmvU5lLMdH",
+      "name" : "How Come You're Not Here",
+      "preview_url" : "https://p.scdn.co/mp3-preview/432cf7300edd092d14a168a91020f159587e375e",
+      "track_number" : 6,
+      "type" : "track",
+      "uri" : "spotify:track:41idour8R9nElmvU5lLMdH"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 221960,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/2QZR5SJcd0ScAJHncwz8w0"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/2QZR5SJcd0ScAJHncwz8w0",
+      "id" : "2QZR5SJcd0ScAJHncwz8w0",
+      "name" : "Slut Like You",
+      "preview_url" : "https://p.scdn.co/mp3-preview/d414aa71e4b93c80974ff9749a7140e20982bd44",
+      "track_number" : 7,
+      "type" : "track",
+      "uri" : "spotify:track:2QZR5SJcd0ScAJHncwz8w0"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 228466,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0QVuVKmTRpUJq4MmvodGox"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0QVuVKmTRpUJq4MmvodGox",
+      "id" : "0QVuVKmTRpUJq4MmvodGox",
+      "name" : "The Truth About Love",
+      "preview_url" : "https://p.scdn.co/mp3-preview/50833496eab6dddfed95a5fbc8d17723e33ee9b1",
+      "track_number" : 8,
+      "type" : "track",
+      "uri" : "spotify:track:0QVuVKmTRpUJq4MmvodGox"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 267293,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/42NLb00srDu2Np8nClaunT"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/42NLb00srDu2Np8nClaunT",
+      "id" : "42NLb00srDu2Np8nClaunT",
+      "name" : "Beam Me Up",
+      "preview_url" : "https://p.scdn.co/mp3-preview/74663d90fd27304350af90ac8c2bb3f7f85ac262",
+      "track_number" : 9,
+      "type" : "track",
+      "uri" : "spotify:track:42NLb00srDu2Np8nClaunT"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 161973,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/2njsHfecNUudLkidClgB1r"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/2njsHfecNUudLkidClgB1r",
+      "id" : "2njsHfecNUudLkidClgB1r",
+      "name" : "Walk of Shame",
+      "preview_url" : "https://p.scdn.co/mp3-preview/a0094b11ea833c797b4430a09eb61ded1e3f9fa0",
+      "track_number" : 10,
+      "type" : "track",
+      "uri" : "spotify:track:2njsHfecNUudLkidClgB1r"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/7dGJo4pcD2V6oG8kP0tJRR",
+        "id" : "7dGJo4pcD2V6oG8kP0tJRR",
+        "name" : "Eminem",
+        "type" : "artist",
+        "uri" : "spotify:artist:7dGJo4pcD2V6oG8kP0tJRR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 264173,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/3mi0d6DvxYcrjkb5UaVMrd"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/3mi0d6DvxYcrjkb5UaVMrd",
+      "id" : "3mi0d6DvxYcrjkb5UaVMrd",
+      "name" : "Here Comes the Weekend",
+      "preview_url" : "https://p.scdn.co/mp3-preview/75dba8bb5bee51b12e3f2b4dbf5472894f06dd94",
+      "track_number" : 11,
+      "type" : "track",
+      "uri" : "spotify:track:3mi0d6DvxYcrjkb5UaVMrd"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 258293,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/5zJis5iTXDjhRIN5OMOAnP"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/5zJis5iTXDjhRIN5OMOAnP",
+      "id" : "5zJis5iTXDjhRIN5OMOAnP",
+      "name" : "Where Did the Beat Go?",
+      "preview_url" : "https://p.scdn.co/mp3-preview/897c6ebc006662196d4c14b5e8b824dcd0c0c478",
+      "track_number" : 12,
+      "type" : "track",
+      "uri" : "spotify:track:5zJis5iTXDjhRIN5OMOAnP"
+    }, {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
+        "id" : "1KCSPY1glIKqW2TotWuXOR",
+        "name" : "P!nk",
+        "type" : "artist",
+        "uri" : "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
+      } ],
+      "available_markets" : [ "JP", "US" ],
+      "disc_number" : 1,
+      "duration_ms" : 264186,
+      "explicit" : false,
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/32PjjVxFHkIJUPpzZFe6kA"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/32PjjVxFHkIJUPpzZFe6kA",
+      "id" : "32PjjVxFHkIJUPpzZFe6kA",
+      "name" : "The Great Escape",
+      "preview_url" : "https://p.scdn.co/mp3-preview/66b7030bb1b31e523dcb365a6fc948f454a040d1",
+      "track_number" : 13,
+      "type" : "track",
+      "uri" : "spotify:track:32PjjVxFHkIJUPpzZFe6kA"
+    } ],
+    "limit" : 50,
+    "next" : null,
+    "offset" : 0,
+    "previous" : null,
+    "total" : 13
+  },
+  "type" : "album",
+  "uri" : "spotify:album:2rBb9rAEuMC8VH9uk7js3e"
+}

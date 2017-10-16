@@ -1,0 +1,78 @@
+{
+ "setlists":{
+  "@itemsPerPage":"20",
+  "@page":"1",
+  "@total":"2",
+  "setlist":[
+   {
+    "@eventDate":"26-07-2015",
+    "@id":"23f00423",
+    "@lastUpdated":"2016-03-24T13:41:17.000+0000",
+    "@tour":"Ashes Tour",
+    "@versionId":"2ba5f8ea",
+    "artist":{
+     "@disambiguation":"",
+     "@mbid":"4a4a33d3-8603-4904-a72a-cfe6c13614a5",
+     "@name":"Caravãna Sun",
+     "@sortName":"Caravãna Sun",
+     "url":"http:\/\/www.setlist.fm\/setlists\/caravana-sun-33d80021.html"
+    },
+    "venue":{
+     "@id":"53d40b91",
+     "@name":"Arrifana Sunset Festival",
+     "city":{
+      "@id":"2271968",
+      "@name":"Aljezur",
+      "@state":"Faro",
+      "@stateCode":"09",
+      "coords":{
+       "@lat":"37.3166667",
+       "@long":"-8.8"
+      },
+      "country":{
+       "@code":"PT",
+       "@name":"Portugal"
+      }
+     },
+     "url":"http:\/\/www.setlist.fm\/venue\/arrifana-sunset-festival-aljezur-portugal-53d40b91.html"
+    },
+    "sets":"",
+    "url":"http:\/\/www.setlist.fm\/setlist\/caravana-sun\/2015\/arrifana-sunset-festival-aljezur-portugal-23f00423.html"
+   },
+   {
+    "@eventDate":"27-07-2014",
+    "@id":"2bcfe4ae",
+    "@lastUpdated":"2014-09-13T18:09:11.000+0000",
+    "@versionId":"239be4d3",
+    "artist":{
+     "@disambiguation":"",
+     "@mbid":"4a4a33d3-8603-4904-a72a-cfe6c13614a5",
+     "@name":"Caravãna Sun",
+     "@sortName":"Caravãna Sun",
+     "url":"http:\/\/www.setlist.fm\/setlists\/caravana-sun-33d80021.html"
+    },
+    "venue":{
+     "@id":"53d40b91",
+     "@name":"Arrifana Sunset Festival",
+     "city":{
+      "@id":"2271968",
+      "@name":"Aljezur",
+      "@state":"Faro",
+      "@stateCode":"09",
+      "coords":{
+       "@lat":"37.3166667",
+       "@long":"-8.8"
+      },
+      "country":{
+       "@code":"PT",
+       "@name":"Portugal"
+      }
+     },
+     "url":"http:\/\/www.setlist.fm\/venue\/arrifana-sunset-festival-aljezur-portugal-53d40b91.html"
+    },
+    "sets":"",
+    "url":"http:\/\/www.setlist.fm\/setlist\/caravana-sun\/2014\/arrifana-sunset-festival-aljezur-portugal-2bcfe4ae.html"
+   }
+  ]
+ }
+}

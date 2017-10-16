@@ -1,0 +1,13 @@
+{{#partial "body"}}
+    <h1>Details of event:</h1>
+    <dl>
+        <dt>Artist of event:</dt>
+        <dd><a href = "/artist/{{artistName}}"> {{artistName}}</a></dd>
+    </dl>
+
+    <dl>
+        <dt>Setlist:</dt>
+        <dd><a href = "/events/tracks/{{listId}}"> Tracks played</a></dd>
+    </dl>
+{{/partial}}
+{{> base}}

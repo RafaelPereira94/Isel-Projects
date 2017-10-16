@@ -1,0 +1,52 @@
+<style>
+    body{
+    background-color: lightgrey;
+    }
+    .title{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: medium;
+    }
+    .player{
+        display: inline-block;
+    }
+</style>
+
+<div class="container text-center">
+    <p>{{name}}</p>
+    <img class="img-thumbnail" src="{{this.image}}" style="width:250px; height:250px;">
+	<hr>
+</div>
+
+<hr>
+<h1>List of tracks: </h1>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Track name</th>
+        <th>Preview</th>
+        <th>Options</th>
+    </tr>
+    </thead>
+    <tbody>
+        {{#each tracks}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td><audio controls class="player"> <source src="{{previewUrl}}" type="audio/mpeg"></audio></td>
+                <td>
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-option-vertical"></span>
+                        </button>
+                        <ul class="dropdown-menu"> 
+                            <li class="dropdown-header">Add to playlist:</li>
+                            {{#each ../playlists}}
+                                <li> <a onclick="tracksHandler('{{id}}','{{../id}}','POST')"> {{name}}</a> </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

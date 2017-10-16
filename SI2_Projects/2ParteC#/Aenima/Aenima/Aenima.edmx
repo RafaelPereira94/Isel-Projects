@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AenimaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="25" />
+          <Property Name="nif" Type="int" />
+          <Property Name="_address" Type="varchar" MaxLength="50" />
+          <Property Name="active" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="percentage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descript" Type="varchar" MaxLength="50" />
+          <Property Name="equipment_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="active" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="EquipmentType">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descript" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ExtraTime">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="extra_time" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="begin_date" Type="date" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="descript" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="serial_nr" />
+          </Key>
+          <Property Name="serial_nr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date_time" Type="datetime" />
+          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="rent_time" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="equipment_code" Type="int" Nullable="false" />
+          <Property Name="employer_number" Type="int" Nullable="false" />
+          <Property Name="client_code" Type="int" Nullable="false" />
+          <Property Name="active" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="RentPrice">
+          <Key>
+            <PropertyRef Name="fare_id" />
+            <PropertyRef Name="name_type" />
+          </Key>
+          <Property Name="fare_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="validity" Type="date" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="_time" Type="int" Nullable="false" />
+          <Property Name="name_type" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RentPromotion">
+          <Key>
+            <PropertyRef Name="rent_serial_nr" />
+            <PropertyRef Name="promotion_id" />
+          </Key>
+          <Property Name="rent_serial_nr" Type="int" Nullable="false" />
+          <Property Name="promotion_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Aenima.dbo.SelectEquipmentsWithoutRentInTheLastWeek' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SelectEquipmentsWithoutRentInTheLastWeek">
+          <Key>
+            <PropertyRef Name="code" />
+            <PropertyRef Name="equipment_name" />
+          </Key>
+          <Property Name="code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="equipment_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descript" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Discount__id__1A74D648">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+          <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Discount">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__equip__772B9A0B">
+          <End Role="EquipmentType" Type="Self.EquipmentType" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentType">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="equipment_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExtraTime__id__16A44564">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+          <End Role="ExtraTime" Type="Self.ExtraTime" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ExtraTime">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__client_cod__0D1ADB2A">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="client_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__employer_n__0C26B6F1">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="number" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="employer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__equipment___0B3292B8">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="equipment_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentPrice__name___7DD8979A">
+          <End Role="EquipmentType" Type="Self.EquipmentType" Multiplicity="1" />
+          <End Role="RentPrice" Type="Self.RentPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentType">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="RentPrice">
+              <PropertyRef Name="name_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentPromo__promo__1F398B65">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+          <End Role="RentPromotion" Type="Self.RentPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RentPromotion">
+              <PropertyRef Name="promotion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentPromo__rent___1E45672C">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <End Role="RentPromotion" Type="Self.RentPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="serial_nr" />
+            </Principal>
+            <Dependent Role="RentPromotion">
+              <PropertyRef Name="rent_serial_nr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="add_equipment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="description" Type="varchar" Mode="In" />
+          <Parameter Name="EquipType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CalculateEndTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime">
+          <Parameter Name="Start_Time" Type="datetime" Mode="In" />
+          <Parameter Name="Duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeletePromotion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteRent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial_nr" Type="int" Mode="In" />
+        </Function>
+        <Function Name="HasRent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="EquipCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="nif" Type="int" Mode="In" />
+          <Parameter Name="p_address" Type="varchar" Mode="In" />
+          <Parameter Name="code" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertEquipment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="description" Type="varchar" Mode="In" />
+          <Parameter Name="equip_name" Type="varchar" Mode="In" />
+          <Parameter Name="code" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertPromotion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="begin_date" Type="date" Mode="In" />
+          <Parameter Name="end_date" Type="date" Mode="In" />
+          <Parameter Name="descript" Type="varchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertRent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rent_time" Type="int" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+          <Parameter Name="EquipCode" Type="int" Mode="In" />
+          <Parameter Name="EmployNmb" Type="int" Mode="In" />
+          <Parameter Name="clientCode" Type="int" Mode="In" />
+          <Parameter Name="serial_nr" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertRentAndClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rent_time" Type="int" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+          <Parameter Name="equipCode" Type="int" Mode="In" />
+          <Parameter Name="employNr" Type="int" Mode="In" />
+          <Parameter Name="clientName" Type="varchar" Mode="In" />
+          <Parameter Name="clientNif" Type="int" Mode="In" />
+          <Parameter Name="clientAddress" Type="varchar" Mode="In" />
+          <Parameter Name="serial_nr" Type="int" Mode="InOut" />
+          <Parameter Name="clientCode" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ListFreeEquipments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="datetime" Mode="In" />
+          <Parameter Name="equipType_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RemoveEquipment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="code" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateEquipment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="description" Type="varchar" Mode="In" />
+          <Parameter Name="code" Type="int" Mode="In" />
+          <Parameter Name="active" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdatePromotion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="begin_date" Type="date" Mode="In" />
+          <Parameter Name="end_date" Type="date" Mode="In" />
+          <Parameter Name="descript" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateRentPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name_type" Type="varchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="validity" Type="date" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+          <Parameter Name="p_time" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="AenimaModelStoreContainer">
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employer" EntityType="Self.Employer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipmentType" EntityType="Self.EquipmentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExtraTime" EntityType="Self.ExtraTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentPrice" EntityType="Self.RentPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentPromotion" EntityType="Self.RentPromotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SelectEquipmentsWithoutRentInTheLastWeek" EntityType="Self.SelectEquipmentsWithoutRentInTheLastWeek" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SelectEquipmentsWithoutRentInTheLastWeek].[code] AS [code], 
+    [SelectEquipmentsWithoutRentInTheLastWeek].[equipment_name] AS [equipment_name], 
+    [SelectEquipmentsWithoutRentInTheLastWeek].[descript] AS [descript]
+    FROM [dbo].[SelectEquipmentsWithoutRentInTheLastWeek] AS [SelectEquipmentsWithoutRentInTheLastWeek]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Discount__id__1A74D648" Association="Self.FK__Discount__id__1A74D648">
+            <End Role="Promotion" EntitySet="Promotion" />
+            <End Role="Discount" EntitySet="Discount" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__equip__772B9A0B" Association="Self.FK__Equipment__equip__772B9A0B">
+            <End Role="EquipmentType" EntitySet="EquipmentType" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExtraTime__id__16A44564" Association="Self.FK__ExtraTime__id__16A44564">
+            <End Role="Promotion" EntitySet="Promotion" />
+            <End Role="ExtraTime" EntitySet="ExtraTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__client_cod__0D1ADB2A" Association="Self.FK__Rent__client_cod__0D1ADB2A">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__employer_n__0C26B6F1" Association="Self.FK__Rent__employer_n__0C26B6F1">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__equipment___0B3292B8" Association="Self.FK__Rent__equipment___0B3292B8">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentPrice__name___7DD8979A" Association="Self.FK__RentPrice__name___7DD8979A">
+            <End Role="EquipmentType" EntitySet="EquipmentType" />
+            <End Role="RentPrice" EntitySet="RentPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentPromo__promo__1F398B65" Association="Self.FK__RentPromo__promo__1F398B65">
+            <End Role="Promotion" EntitySet="Promotion" />
+            <End Role="RentPromotion" EntitySet="RentPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentPromo__rent___1E45672C" Association="Self.FK__RentPromo__rent___1E45672C">
+            <End Role="Rent" EntitySet="Rent" />
+            <End Role="RentPromotion" EntitySet="RentPromotion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AenimaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="nif" Type="Int32" />
+          <Property Name="C_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rents" Relationship="Self.FK__Rent__client_cod__6541F3FA" FromRole="Client" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="percentage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Promotion" Relationship="Self.FK__Discount__id__729BEF18" FromRole="Discount" ToRole="Promotion" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Rents" Relationship="Self.FK__Rent__employer_n__644DCFC1" FromRole="Employer" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descript" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="equipment_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EquipmentType" Relationship="Self.FK__Equipment__equip__4F52B2DB" FromRole="Equipment" ToRole="EquipmentType" />
+          <NavigationProperty Name="Rents" Relationship="Self.FK__Rent__equipment___6359AB88" FromRole="Equipment" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="EquipmentType">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descript" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipments" Relationship="Self.FK__Equipment__equip__4F52B2DB" FromRole="EquipmentType" ToRole="Equipment" />
+          <NavigationProperty Name="RentPrices" Relationship="Self.FK__RentPrice__name___55FFB06A" FromRole="EquipmentType" ToRole="RentPrice" />
+        </EntityType>
+        <EntityType Name="ExtraTime">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="extra_time" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Promotion" Relationship="Self.FK__ExtraTime__id__6ECB5E34" FromRole="ExtraTime" ToRole="Promotion" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="begin_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="descript" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Discount" Relationship="Self.FK__Discount__id__729BEF18" FromRole="Promotion" ToRole="Discount" />
+          <NavigationProperty Name="ExtraTime" Relationship="Self.FK__ExtraTime__id__6ECB5E34" FromRole="Promotion" ToRole="ExtraTime" />
+          <NavigationProperty Name="Rents" Relationship="Self.RentPromotion" FromRole="Promotion" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="serial_nr" />
+          </Key>
+          <Property Name="serial_nr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_time" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="rent_time" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="equipment_code" Type="Int32" Nullable="false" />
+          <Property Name="employer_number" Type="Int32" Nullable="false" />
+          <Property Name="client_code" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Rent__client_cod__6541F3FA" FromRole="Rent" ToRole="Client" />
+          <NavigationProperty Name="Employer" Relationship="Self.FK__Rent__employer_n__644DCFC1" FromRole="Rent" ToRole="Employer" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK__Rent__equipment___6359AB88" FromRole="Rent" ToRole="Equipment" />
+          <NavigationProperty Name="Promotions" Relationship="Self.RentPromotion" FromRole="Rent" ToRole="Promotion" />
+        </EntityType>
+        <EntityType Name="RentPrice">
+          <Key>
+            <PropertyRef Name="fare_id" />
+            <PropertyRef Name="name_type" />
+          </Key>
+          <Property Name="fare_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="validity" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="C_time" Type="Int32" Nullable="false" />
+          <Property Name="name_type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EquipmentType" Relationship="Self.FK__RentPrice__name___55FFB06A" FromRole="RentPrice" ToRole="EquipmentType" />
+        </EntityType>
+        <EntityType Name="SelectEquipmentsWithoutRentInTheLastWeek">
+          <Key>
+            <PropertyRef Name="code" />
+            <PropertyRef Name="equipment_name" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="equipment_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descript" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Rent__client_cod__6541F3FA">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="client_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Discount__id__729BEF18">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+          <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Discount">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__employer_n__644DCFC1">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="number" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="employer_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipment__equip__4F52B2DB">
+          <End Role="EquipmentType" Type="Self.EquipmentType" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentType">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="equipment_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__equipment___6359AB88">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="equipment_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentPrice__name___55FFB06A">
+          <End Role="EquipmentType" Type="Self.EquipmentType" Multiplicity="1" />
+          <End Role="RentPrice" Type="Self.RentPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentType">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="RentPrice">
+              <PropertyRef Name="name_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExtraTime__id__6ECB5E34">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+          <End Role="ExtraTime" Type="Self.ExtraTime" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ExtraTime">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RentPromotion">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="*" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AenimaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Discounts" EntityType="Self.Discount" />
+          <EntitySet Name="Employers" EntityType="Self.Employer" />
+          <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+          <EntitySet Name="EquipmentTypes" EntityType="Self.EquipmentType" />
+          <EntitySet Name="ExtraTimes" EntityType="Self.ExtraTime" />
+          <EntitySet Name="Promotions" EntityType="Self.Promotion" />
+          <EntitySet Name="Rents" EntityType="Self.Rent" />
+          <EntitySet Name="RentPrices" EntityType="Self.RentPrice" />
+          <EntitySet Name="SelectEquipmentsWithoutRentInTheLastWeeks" EntityType="Self.SelectEquipmentsWithoutRentInTheLastWeek" />
+          <AssociationSet Name="FK__Rent__client_cod__6541F3FA" Association="Self.FK__Rent__client_cod__6541F3FA">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Discount__id__729BEF18" Association="Self.FK__Discount__id__729BEF18">
+            <End Role="Promotion" EntitySet="Promotions" />
+            <End Role="Discount" EntitySet="Discounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__employer_n__644DCFC1" Association="Self.FK__Rent__employer_n__644DCFC1">
+            <End Role="Employer" EntitySet="Employers" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipment__equip__4F52B2DB" Association="Self.FK__Equipment__equip__4F52B2DB">
+            <End Role="EquipmentType" EntitySet="EquipmentTypes" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__equipment___6359AB88" Association="Self.FK__Rent__equipment___6359AB88">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentPrice__name___55FFB06A" Association="Self.FK__RentPrice__name___55FFB06A">
+            <End Role="EquipmentType" EntitySet="EquipmentTypes" />
+            <End Role="RentPrice" EntitySet="RentPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExtraTime__id__6ECB5E34" Association="Self.FK__ExtraTime__id__6ECB5E34">
+            <End Role="Promotion" EntitySet="Promotions" />
+            <End Role="ExtraTime" EntitySet="ExtraTimes" />
+          </AssociationSet>
+          <AssociationSet Name="RentPromotion" Association="Self.RentPromotion">
+            <End Role="Promotion" EntitySet="Promotions" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <FunctionImport Name="add_equipment">
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="EquipType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePromotion">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPromotion">
+            <Parameter Name="begin_date" Mode="In" Type="DateTime" />
+            <Parameter Name="end_date" Mode="In" Type="DateTime" />
+            <Parameter Name="descript" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RemoveEquipment">
+          <Parameter Name="code" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateEquipment">
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="code" Mode="In" Type="Int32" />
+            <Parameter Name="active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePromotion">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="begin_date" Mode="In" Type="DateTime" />
+            <Parameter Name="end_date" Mode="In" Type="DateTime" />
+            <Parameter Name="descript" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRent">
+          <Parameter Name="serial_nr" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertClient">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="nif" Mode="In" Type="Int32" />
+            <Parameter Name="p_address" Mode="In" Type="String" />
+            <Parameter Name="code" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertEquipment">
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="equip_name" Mode="In" Type="String" />
+            <Parameter Name="code" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertRent">
+            <Parameter Name="rent_time" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+            <Parameter Name="EquipCode" Mode="In" Type="Int32" />
+            <Parameter Name="EmployNmb" Mode="In" Type="Int32" />
+            <Parameter Name="clientCode" Mode="In" Type="Int32" />
+            <Parameter Name="serial_nr" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertRentAndClient">
+            <Parameter Name="rent_time" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+            <Parameter Name="equipCode" Mode="In" Type="Int32" />
+            <Parameter Name="employNr" Mode="In" Type="Int32" />
+            <Parameter Name="clientName" Mode="In" Type="String" />
+            <Parameter Name="clientNif" Mode="In" Type="Int32" />
+            <Parameter Name="clientAddress" Mode="In" Type="String" />
+            <Parameter Name="serial_nr" Mode="InOut" Type="Int32" />
+            <Parameter Name="clientCode" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ListFreeEquipments" ReturnType="Collection(AenimaModel.ListFreeEquipments_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="equipType_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRentPrice">
+            <Parameter Name="name_type" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="validity" Mode="In" Type="DateTime" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+            <Parameter Name="p_time" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ListFreeEquipments_Result">
+          <Property Type="String" Name="equipment_name" Nullable="false" MaxLength="25" />
+          <Property Type="Int32" Name="code" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AenimaModelStoreContainer" CdmEntityContainer="AenimaEntities">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="AenimaModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="nif" ColumnName="nif" />
+                <ScalarProperty Name="C_address" ColumnName="_address" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="AenimaModel.Discount">
+              <MappingFragment StoreEntitySet="Discount">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employers">
+            <EntityTypeMapping TypeName="AenimaModel.Employer">
+              <MappingFragment StoreEntitySet="Employer">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="AenimaModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+                <ScalarProperty Name="equipment_name" ColumnName="equipment_name" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentTypes">
+            <EntityTypeMapping TypeName="AenimaModel.EquipmentType">
+              <MappingFragment StoreEntitySet="EquipmentType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExtraTimes">
+            <EntityTypeMapping TypeName="AenimaModel.ExtraTime">
+              <MappingFragment StoreEntitySet="ExtraTime">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="extra_time" ColumnName="extra_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="AenimaModel.Promotion">
+              <MappingFragment StoreEntitySet="Promotion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="begin_date" ColumnName="begin_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rents">
+            <EntityTypeMapping TypeName="AenimaModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="serial_nr" ColumnName="serial_nr" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="rent_time" ColumnName="rent_time" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="equipment_code" ColumnName="equipment_code" />
+                <ScalarProperty Name="employer_number" ColumnName="employer_number" />
+                <ScalarProperty Name="client_code" ColumnName="client_code" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RentPrices">
+            <EntityTypeMapping TypeName="AenimaModel.RentPrice">
+              <MappingFragment StoreEntitySet="RentPrice">
+                <ScalarProperty Name="fare_id" ColumnName="fare_id" />
+                <ScalarProperty Name="validity" ColumnName="validity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="C_time" ColumnName="_time" />
+                <ScalarProperty Name="name_type" ColumnName="name_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SelectEquipmentsWithoutRentInTheLastWeeks">
+            <EntityTypeMapping TypeName="AenimaModel.SelectEquipmentsWithoutRentInTheLastWeek">
+              <MappingFragment StoreEntitySet="SelectEquipmentsWithoutRentInTheLastWeek">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="equipment_name" ColumnName="equipment_name" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RentPromotion" TypeName="AenimaModel.RentPromotion" StoreEntitySet="RentPromotion">
+            <EndProperty Name="Promotion">
+              <ScalarProperty Name="id" ColumnName="promotion_id" />
+            </EndProperty>
+            <EndProperty Name="Rent">
+              <ScalarProperty Name="serial_nr" ColumnName="rent_serial_nr" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="add_equipment" FunctionName="AenimaModel.Store.add_equipment" />
+          <FunctionImportMapping FunctionImportName="DeletePromotion" FunctionName="AenimaModel.Store.DeletePromotion" />
+          <FunctionImportMapping FunctionImportName="InsertPromotion" FunctionName="AenimaModel.Store.InsertPromotion" />
+          <FunctionImportMapping FunctionImportName="RemoveEquipment" FunctionName="AenimaModel.Store.RemoveEquipment" />
+          <FunctionImportMapping FunctionImportName="UpdateEquipment" FunctionName="AenimaModel.Store.UpdateEquipment" />
+          <FunctionImportMapping FunctionImportName="UpdatePromotion" FunctionName="AenimaModel.Store.UpdatePromotion" />
+          <FunctionImportMapping FunctionImportName="DeleteRent" FunctionName="AenimaModel.Store.DeleteRent" />
+          <FunctionImportMapping FunctionImportName="InsertClient" FunctionName="AenimaModel.Store.InsertClient" />
+          <FunctionImportMapping FunctionImportName="InsertEquipment" FunctionName="AenimaModel.Store.InsertEquipment" />
+          <FunctionImportMapping FunctionImportName="InsertRent" FunctionName="AenimaModel.Store.InsertRent" />
+          <FunctionImportMapping FunctionImportName="InsertRentAndClient" FunctionName="AenimaModel.Store.InsertRentAndClient" />
+          <FunctionImportMapping FunctionImportName="ListFreeEquipments" FunctionName="AenimaModel.Store.ListFreeEquipments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AenimaModel.ListFreeEquipments_Result">
+                <ScalarProperty Name="equipment_name" ColumnName="equipment_name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateRentPrice" FunctionName="AenimaModel.Store.UpdateRentPrice" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

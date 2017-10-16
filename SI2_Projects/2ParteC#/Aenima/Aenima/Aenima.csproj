@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{950C3B14-74E9-443F-A6D9-6970034B6FD5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aenima</RootNamespace>
+    <AssemblyName>Aenima</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aenima.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aenima.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Aenima.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Aenima.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aenima.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\DeletePromoCmd.cs" />
+    <Compile Include="Commands\ExitCmd.cs" />
+    <Compile Include="Commands\InsertPromoCmd.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\InsertRentFullClientCmd.cs" />
+    <Compile Include="Commands\ListEquipRentCmd.cs" />
+    <Compile Include="Commands\ListFreeEquipDateCmd.cs" />
+    <Compile Include="Commands\RemoveRentCmd.cs" />
+    <Compile Include="Commands\UpdatePromoCmd.cs" />
+    <Compile Include="Commands\UpdateRentPriceCmd.cs" />
+    <Compile Include="Discount.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employer.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentType.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\InvalidCommandException.cs" />
+    <Compile Include="Commands\ExportRentCmd.cs" />
+    <Compile Include="ExtraTime.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\InsertRentCmd.cs" />
+    <Compile Include="ListFreeEquipments_Result.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Promotion.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rent.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RentPrice.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectEquipmentsWithoutRentInTheLastWeek.cs">
+      <DependentUpon>Aenima.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DataUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Aenima.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Aenima.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Aenima.edmx.diagram">
+      <DependentUpon>Aenima.edmx</DependentUpon>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="SchemaRent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Aenima.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Aenima.edmx</DependentUpon>
+      <LastGenOutput>Aenima.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Aenima.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Aenima.edmx</DependentUpon>
+      <LastGenOutput>Aenima.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

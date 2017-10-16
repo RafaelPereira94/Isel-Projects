@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="api_query_language">lang=pt</string>
+
+    <string name="action_about_us">Autor</string>
+
+    <string name="credits_author_label">Por:</string>
+
+    <string name="mainActivity_creditsButton">Créditos</string>
+    <string name="mainActivity_currentWeatherButton">Tempo Presente</string>
+    <string name="mainActivity_forecastButton">Previsão 5 dias</string>
+    <string name="mainActivity_insertCity">Insira uma cidade</string>
+    <string name="mainActivity_title">Outra Aplicação de Meteorologia</string>
+
+    <string name="activity_weather_temperatureLabel">Temperatura:</string>
+    <string name="activity_weather_pressureLabel">Pressão:</string>
+    <string name="activity_weather_humidityLabel">Humidade:</string>
+    <string name="activity_weather_windSpeedLabel">Vento:</string>
+    <string name="activity_weather_sunriseLabel">Nascer do sol:</string>
+    <string name="activity_weather_sunsetLabel">Pôr do sol:</string>
+    <string name="activity_weather_cloudsLabel">Cloudiness:</string>
+    <string name="activity_weather_rainLabel">Chuva:</string>
+    <string name="activity_weather_snowLabel">Neve:</string>
+    <string name="weather_windSpeedUnit">metros/seg</string>
+
+    <string name="noConnectivity_message">Não existe conectividade à Internet.</string>
+    <string name="weather_noRain">sem chuva</string>
+    <string name="weather_noSnow">sem neve</string>
+
+    <string name="activity_weather_tempMaxLabel">Temperatura max:</string>
+    <string name="activity_weather_tempMinLabel">Temperatura min:</string>
+    <string name="shared_preference_notification">Noticações:</string>
+    <string name="shared_preference_economic_mode">Modo Económico:</string>
+    <string name="shared_preference_favorite_city">Cidade favorita:</string>
+    <string name="shared_preference_notification_hour">Hora de notificação:</string>
+    <string name="shared_preference_saveButton">Guardar</string>
+    <string name="notification_text">Nova actualização do tempo:</string>
+</resources>

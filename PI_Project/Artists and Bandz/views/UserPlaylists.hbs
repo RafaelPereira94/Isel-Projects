@@ -1,0 +1,22 @@
+<h1>My playlists:</h1>
+<label for="name">Create a new playlist:</label>
+<input id="playlistName" type="text" placeholder="Playlist name">
+<a class="btn btn-default" onclick="createplaylist()"> Create </a>
+<div id="playlists">
+    {{#each playlists}}
+        <div id="{{id}}">
+            {{> playlist }}
+        </div>
+    {{/each}}
+</div>
+ <br>
+<h1> Shared playlists: </h1>
+<div id="sharedPlaylists">
+    {{#if shared}}
+        {{#each shared.playlists}}
+            <div id="{{id}}">
+                {{> sharedPlaylist }}
+            </div>
+        {{/each}}
+    {{/if}}
+</div>

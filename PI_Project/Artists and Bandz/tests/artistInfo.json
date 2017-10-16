@@ -1,0 +1,67 @@
+{
+  "artists" : {
+    "href" : "https://api.spotify.com/v1/search?query=Karetus&offset=0&limit=20&type=artist",
+    "items" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5SVGhU7cTodC79weaAmjYy"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 6537
+      },
+      "genres" : [ "filthstep" ],
+      "href" : "https://api.spotify.com/v1/artists/5SVGhU7cTodC79weaAmjYy",
+      "id" : "5SVGhU7cTodC79weaAmjYy",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab58969ac5f4d46516f035be3182b3c22de5d700",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/4e58206d532b2141f34cb1f08d3b0771e6bb5be2",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/829180fea8d43e6ad224f7235f5441389222d7dc",
+        "width" : 64
+      } ],
+      "name" : "Karetus",
+      "popularity" : 41,
+      "type" : "artist",
+      "uri" : "spotify:artist:5SVGhU7cTodC79weaAmjYy"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5ip83crD5OfUd34Cv5uwt5"
+      },
+      "followers" : {
+        "href" : null,
+        "total" : 7
+      },
+      "genres" : [ ],
+      "href" : "https://api.spotify.com/v1/artists/5ip83crD5OfUd34Cv5uwt5",
+      "id" : "5ip83crD5OfUd34Cv5uwt5",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/41e685478c7a3ee10d9be2783a917df3081cfb38",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/2066bd735b1affdedd0b9061dd82d398f92f47d8",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/6fee9d6ddc55b257c6b2b93b08ea4e1ff445a820",
+        "width" : 64
+      } ],
+      "name" : "Karetus & Sue Cho",
+      "popularity" : 0,
+      "type" : "artist",
+      "uri" : "spotify:artist:5ip83crD5OfUd34Cv5uwt5"
+    } ],
+    "limit" : 20,
+    "next" : null,
+    "offset" : 0,
+    "previous" : null,
+    "total" : 2
+  }
+}

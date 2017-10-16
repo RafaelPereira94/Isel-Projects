@@ -1,0 +1,1 @@
+image_details('face1_5.bmp', imread('face1_5.bmp'))

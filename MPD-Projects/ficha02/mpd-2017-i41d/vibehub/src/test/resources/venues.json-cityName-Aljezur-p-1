@@ -1,0 +1,47 @@
+{
+ "venues":{
+  "@itemsPerPage":"30",
+  "@page":"1",
+  "@total":"2",
+  "venue":[
+   {
+    "@id":"53d40b91",
+    "@name":"Arrifana Sunset Festival",
+    "city":{
+     "@id":"2271968",
+     "@name":"Aljezur",
+     "@state":"Faro",
+     "@stateCode":"09",
+     "coords":{
+      "@lat":"37.3166667",
+      "@long":"-8.8"
+     },
+     "country":{
+      "@code":"PT",
+      "@name":"Portugal"
+     }
+    },
+    "url":"http:\/\/www.setlist.fm\/venue\/arrifana-sunset-festival-aljezur-portugal-53d40b91.html"
+   },
+   {
+    "@id":"43d58f93",
+    "@name":"Festa da Sardinha, Aljezur, Algarve",
+    "city":{
+     "@id":"2271968",
+     "@name":"Aljezur",
+     "@state":"Faro",
+     "@stateCode":"09",
+     "coords":{
+      "@lat":"37.3166667",
+      "@long":"-8.8"
+     },
+     "country":{
+      "@code":"PT",
+      "@name":"Portugal"
+     }
+    },
+    "url":"http:\/\/www.setlist.fm\/venue\/festa-da-sardinha-aljezur-algarve-aljezur-portugal-43d58f93.html"
+   }
+  ]
+ }
+}

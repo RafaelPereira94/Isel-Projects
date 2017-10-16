@@ -1,0 +1,51 @@
+<style>
+    .floating-item {
+    display: inline-block;
+    width: 220px;
+    height: 220px;
+    margin: 20px;
+    text-align: center;
+    }
+    h1{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #color-text{
+        font-family: Arial, Helvetica, sans-serif;
+        color: darkgray;
+    }
+    body{
+        background-color: lightgray;
+    }
+    a{
+        font-size: 20px
+    }
+    a:link {
+        color: black;
+    }
+    /* visited link */
+    a:visited {
+        color: darkred;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: red;
+    }
+</style>
+
+<h1> Search results for: <span id="color-text">{{this.query}}</span> </h1>
+<hr>
+
+{{> paging }}
+
+<div class="text-center">
+    {{#each artists}}
+        <div class="floating-item">
+            <a href={{this.detailUrl}}>{{this.name}} </a>
+            <a href={{this.detailUrl}}> <img class="img-thumbnail" src="{{this.image}}" style="width:220px; height:220px;"> </a>
+        </div>
+    {{/each}}
+</div>
+
+{{> paging }}

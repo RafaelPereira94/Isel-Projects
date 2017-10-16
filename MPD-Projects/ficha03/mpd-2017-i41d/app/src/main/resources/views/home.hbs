@@ -1,0 +1,17 @@
+{{#partial "body"}}
+    <div class="jumbotron">
+        <h1 class="text-center">Vibehub</h1>
+    </div>
+
+    <p> On vibehub you can search for you favorites venues and see the events the artists and theier tracks. </p>
+
+    <form class="form-inline" method="get" action="/search/venues">
+        <div class="input-group">
+            <input name="location" type="text" class="form-control" placeholder="Search for venue location">
+            <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" value="Submit"> Search </button>
+        </span>
+        </div>
+    </form>
+{{/partial}}
+{{> base}}

@@ -1,0 +1,15 @@
+{{#partial "body"}}
+    <table class="table table-hover" border="3">
+        <tr>
+            <th>Name:</th>
+            <th>Id:</th>
+        </tr>
+        {{#each this}}
+            <tr>
+                <td>{{name}}</td>
+                <td><a href = "/events/{{id}}">{{id}}</a></td>
+            </tr>
+        {{/each}}
+    </table>
+{{/partial}}
+{{> base}}

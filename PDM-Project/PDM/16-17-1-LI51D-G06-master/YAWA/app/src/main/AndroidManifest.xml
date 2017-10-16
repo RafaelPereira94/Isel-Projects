@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pdm.isel.pt.yawa">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".YawaApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".presentation.MainActivity" />
+        <activity android:name=".presentation.ForecastWeatherInfoActivity" />
+        <activity android:name=".presentation.WeatherInfoActivity" />
+        <activity android:name=".presentation.CreditsActivity" />
+        <activity android:name=".presentation.PreferencesActivity" />
+        <activity
+            android:name=".presentation.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Receivers -->
+        <receiver android:name=".handler.ConnectivityChanged">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".handler.BootChanged">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- /Receivers -->
+
+
+        <!-- Services -->
+        <service
+            android:name=".services.WeatherForecastUpdater"
+            android:exported="false" />
+        <service
+            android:name=".services.WeatherUpdater"
+            android:exported="false" />
+        <!-- /Services -->
+
+
+        <!-- Provider -->
+        <provider
+            android:name=".models.content.WeatherProvider"
+            android:authorities="pdm.isel.pt.yawa"
+            android:exported="false" />
+        <!-- /Provider -->
+
+        <activity android:name=".presentation.FavouriteCityWeatherActivity"></activity>
+    </application>
+
+</manifest>

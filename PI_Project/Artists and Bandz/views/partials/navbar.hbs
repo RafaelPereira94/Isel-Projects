@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse navbar-static-top ">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand">
+                <span><img src="/music.ico" height="25" width="25"/></span>
+                Artistz to Bandz
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                {{#if user}}
+                    <li><a href="/myplaylists">My Playlists</a></li>
+                    <li><a href="/myinvites">My Invites</a></li>
+                {{/if}}
+            </ul>
+            <form class="navbar-form navbar-left" method="get" action="/search/">
+                <div class="input-group">
+                    <input name="name" type="text" class="form-control" placeholder="Search for artist or band">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" value="Submit"> Submit </button>
+                    </span>
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                {{#if user}}
+                    <li><p class="navbar-text">Welcome, {{user.username}}</p></li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                {{else}}
+                    <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>

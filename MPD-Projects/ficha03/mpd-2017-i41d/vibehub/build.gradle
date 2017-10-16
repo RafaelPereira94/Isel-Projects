@@ -1,0 +1,20 @@
+// Apply the java-library plugin to add support for Java Library
+apply plugin: 'java-library'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'org.asynchttpclient:async-http-client:2.0.32'
+    compile 'com.github.jknack:handlebars:4.0.6'
+    compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.25'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.5.v20170502'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.5.v20170502'
+
+    testImplementation 'junit:junit:4.12'
+}

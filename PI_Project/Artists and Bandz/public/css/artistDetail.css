@@ -1,0 +1,25 @@
+body{
+	background-color: lightgrey;
+}
+.album{
+	background: grey;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+.title{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: medium;
+}
+.content{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+}
+.container{
+	margin: 25px;
+}
+.img{
+	float:left;
+	width:220px;
+	height:220px;
+}

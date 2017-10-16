@@ -1,0 +1,14 @@
+<div class="text-center">
+    <ul class="pagination">
+        <li> <a class="btn btn-link" href={{first}} > 1 </a> </li>
+        {{#if prev}}
+            <li> <a class="btn btn-link" href={{prev}} > << </a> </li>
+        {{/if}}
+        {{#if next}}
+            <li> <a class="btn btn-link" href={{next}} > >> </a> </li>
+        {{/if}}
+        {{#if last}}
+            <li> <a class="btn btn-link" href={{last}} > {{total}} </a> </li>
+        {{/if}}
+    </ul>
+</div>

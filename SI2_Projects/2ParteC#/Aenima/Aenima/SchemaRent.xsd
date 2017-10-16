@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault = "unqualified" elementFormDefault="qualified">
+  
+  <xs:element name="xml" type="xmlType"/>
+
+  <xs:complexType name="xmlType">
+    <xs:sequence>
+      <xs:element type ="alugueresType" name="alugueres"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="aluguerType">
+    <xs:sequence>
+      <xs:element type="xs:positiveInteger" name="cliente"/>
+      <xs:element type="xs:positiveInteger" name="equipamento"/>
+    </xs:sequence>
+    <xs:attribute type="xs:positiveInteger" name="id" use="required"/>
+    <xs:attribute type="xs:string" name="tipo"/>
+  </xs:complexType>
+
+  <xs:complexType name="alugueresType">
+    <xs:sequence>
+      <xs:element type="aluguerType" name="aluguer" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="dataInicio"/>
+    <xs:attribute type="xs:string" name="dataFim"/>
+  </xs:complexType>
+
+</xs:schema>

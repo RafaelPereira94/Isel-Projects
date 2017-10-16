@@ -1,0 +1,15 @@
+--select * from daw.user;
+
+--select * from daw.student;
+
+--select * from daw.teacher;
+
+--select * from daw.course;
+
+--SELECT classId, course, semester FROM daw.classTeacher WHERE teacherNumber = 10000
+
+--select name,year,season from daw.semester where name = (SELECT semester FROM daw.course join daw.class on(name = course) where name = 'test')
+
+--insert into daw.user (name,email) VALUES ('silva','41665%40alunos.pt');
+
+--insert into daw.student(number,email)VALUES (41665, '41665%40alunos.pt');

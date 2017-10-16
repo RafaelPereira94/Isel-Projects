@@ -1,0 +1,38 @@
+{{#block "header"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"/>
+        <title> Vibe-Hub </title>
+        <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css" />
+        <link rel="shortcut icon" href="/public/favicon.ico">
+        <style>
+            .footer {
+                padding: 1rem;
+                background-color: #efefef;
+                text-align: center;
+            }
+            th,td{
+                text-align: center;
+            }
+            .wrapper{
+                min-height: 600px;
+            }
+        </style>
+    </head>
+{{/block}}
+<div class="wrapper container">
+    {{#block "body"}}{{/block}}
+
+</div>
+
+{{#block "footer"}}
+        <div class="container">
+            <div class="footer">
+                <p>WebApp made with love for class Software design pattern on ISEL</p>
+            </div>
+        </div>
+{{/block}}
+
+</body>
+</html>

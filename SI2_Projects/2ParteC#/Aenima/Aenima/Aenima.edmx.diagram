@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5fd424b1433347cfabb91bc1eaecb536" Name="Diagram1">
+        <EntityTypeShape EntityType="AenimaModel.Client" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.Discount" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.Employer" Width="1.5" PointX="3.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.Equipment" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.EquipmentType" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.ExtraTime" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.Promotion" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.Rent" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.RentPrice" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="AenimaModel.SelectEquipmentsWithoutRentInTheLastWeek" Width="2.75" PointX="0.5" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="AenimaModel.FK__Rent__client_cod__6541F3FA" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.FK__Discount__id__729BEF18" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.FK__Rent__employer_n__644DCFC1" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.FK__Equipment__equip__4F52B2DB" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.FK__Rent__equipment___6359AB88" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.FK__RentPrice__name___55FFB06A" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.FK__ExtraTime__id__6ECB5E34" ManuallyRouted="false" />
+        <AssociationConnector Association="AenimaModel.RentPromotion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,41 @@
+{{#if user}}
+    <h1> My invites </h1>
+    <div id="invites">
+        {{#if invites}}
+            {{#each invites}}
+                <div id="invite-{{playlist}}">
+                    <p> User {{from}} wants to share a playlist with you </p>
+                    <span>
+                        <a onclick="handleInvite(true, '{{playlist}}')"> Accept </a>
+                        <a onclick="handleInvite(false, '{{playlist}}')"> Decline </a>
+                    </span>
+                </div>
+            {{/each}}
+        {{else}}
+            <h3 class="text-center"> You have no invites </h3>
+        {{/if}}
+    </div>
+    <br>
+    <h1> Send invites </h1>
+    <div id="sendInvites">
+        {{#if sendInvites}}
+            {{#each sendInvites}}
+                <div id="invite-{{playlist}}">
+                    <p> You shared a playlist with {{to}} </p>
+                    <span>
+                        {{#if write}}
+                            <input onclick="changePermission('{{to}}', '{{playlist}}')" type="checkbox" checked>
+                            Permission to write
+                        {{else}}
+                            <input onclick="changePermission('{{to}}', '{{playlist}}')" type="checkbox">
+                            Permission to write
+                        {{/if}}
+                        <a onclick="stopSharingWith('{{to}}' ,'{{playlist}}')"> Stop sharing </a>
+                    </span>
+                </div>
+            {{/each}}
+        {{else}}
+            <h3 class="text-center"> No invites send </h3>
+        {{/if}}
+    </div>
+{{/if}}

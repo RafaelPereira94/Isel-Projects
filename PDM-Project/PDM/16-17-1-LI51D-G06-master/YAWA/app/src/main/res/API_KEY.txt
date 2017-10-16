@@ -1,0 +1,9 @@
+b22be6e0a4dffd64eeddad7f0ee8e175
+
+http://api.openweathermap.org/data/2.5/weather?q=Lisbon,pt&units=metric&lang=pt&appid=b22be6e0a4dffd64eeddad7f0ee8e175
+--current lisbon weather
+
+http://api.openweathermap.org/data/2.5/forecast/daily?q=Lisbon,pt&units=metric&cnt=5&lang=pt&appid=b22be6e0a4dffd64eeddad7f0ee8e175
+--forecast lisbon
+
+pdm.isel.pt.yawa.pt.pdm.isel.pt.yawa

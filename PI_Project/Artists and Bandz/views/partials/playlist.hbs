@@ -1,0 +1,43 @@
+<h2 id="name-{{id}}"> {{name}} </h2>
+<span class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-option-vertical"></span>
+    </button>
+    <ul class="dropdown-menu"> 
+        <li>
+            <input id="newname-{{id}}" type="text" placeholder="New playlist name">
+            <a onclick="renamePlaylist('{{id}}')"> Rename </a>
+        </li>
+        <li class="divider"></li>
+        <li> <a onclick="deleteplaylist('{{id}}')"> Delete </a> </li>
+        <li class="divider"></li>
+        <li>
+            <input id="user-{{id}}" type="text" placeholder="Username">
+            <input id="perm-{{id}}" type="checkbox"> Permission to write
+            <a onclick="sendInvite('{{id}}')"> Share </a>
+        </li>
+    </ul>
+</span>
+
+{{#if tracks}}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Track name</th>
+            <th>Preview</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody id="tbody-{{id}}">
+            {{#each tracks}}
+                <tr id="track-{{id}}">
+                    <td>{{name}}</td>
+                    <td><audio controls class="player text-center"> <source src="{{previewUrl}}" type="audio/mpeg"></audio></td>
+                    <td> <a class="btn btn-default" onclick="tracksHandler('{{../id}}','{{id}}','DELETE')">Delete track</a> </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <h3> This playlist has no tracks </h3>
+{{/if}}

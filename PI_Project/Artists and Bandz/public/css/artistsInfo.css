@@ -1,0 +1,14 @@
+.floating-item {
+    display: inline-block;
+    width: 220px;
+    height: 220px;
+    margin: 20px;
+    text-align: center;
+}
+#color-text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkgray;
+}
+body{
+    background-color: lightgray;
+}
